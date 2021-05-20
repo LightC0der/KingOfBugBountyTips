@@ -109,7 +109,7 @@ curl -s https://raw.githubusercontent.com/projectdiscovery/public-bugbounty-prog
 - [Explaining command](https://bit.ly/3m5ft1g)
 
 ```bash
-xargs -a domain -I@ sh -c 'wingman -u @ --crawl | notify'
+xargs -a domains.txt -I@ sh -c 'wingman -u @ --crawl | notify'
 
 ```
 
@@ -570,7 +570,7 @@ assetfinder -subs-only paypal.com -silent | httpx -timeout 3 -threads 300 --foll
 - [Explained command](https://bit.ly/33qT71x)
 
 ```bash
-assetfinder fitbit.com | httpx -threads 300 -follow-redirects -silent | rush -j200 'curl -m5 -s -I -H "Origin:evil.com" {} |  [[ $(grep -c "evil.com") -gt 0 ]] && printf "\n\033[0;32m[VUL TO CORS] - {}\e[m"' 2>/dev/null"
+assetfinder fitbit.com | httpx -threads 300 -follow-redirects -silent | rush -j200 'curl -m5 -s -I -H "Origin:evil.com" {} |  [[ $(grep -c "evil.com") -gt 0 ]] && printf "\n\033[0;32m[VUL TO CORS] - {}\e[m"' 2>/dev/null
 ```
 
 ###  Search to js using hakrawler and rush & unew
